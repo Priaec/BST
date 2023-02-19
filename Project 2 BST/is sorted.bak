@@ -1,0 +1,12 @@
+#lang racket
+(define (is-sorted? x)
+  (cond
+
+     ((empty? x) #t)
+     ((not(empty? x)) #f)
+     ((= (count-list-elements x) 1) #t)
+     ((not(= (count-list-elements x) 1)) #f)
+     (else (and (sort (append (list(list-element-n x 0)) (list(list-element-n x 1)) ) <)
+                (is-sorted? (cdr x)) ) )
+  )
+)
